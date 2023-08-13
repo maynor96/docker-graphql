@@ -41,6 +41,8 @@ jobs:
         docker build -t maynor96/docker-graphql:latest .
         
     - name: Push Docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         docker push maynor96/docker-graphql:$NEW_VERSION
         docker push maynor96/docker-graphql:latest
