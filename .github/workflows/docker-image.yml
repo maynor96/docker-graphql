@@ -39,6 +39,7 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
+        echo "$NEW_VERSION"
         docker build -t maynor96/docker-graphql:$NEW_VERSION .
         docker build -t maynor96/docker-graphql:latest .
         
